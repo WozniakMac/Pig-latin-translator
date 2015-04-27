@@ -7,7 +7,7 @@ def pig_latin(text)
 		wchars.delete_at(0)
 		wchars[0].upcase! if first == first.upcase
 		wchars[-1].downcase! if last == last.downcase
-		if first =~ /[eyuioa]/
+		if first.downcase =~ /[eyuioa]/
 			"#{word}way"
 		else
 			"#{wchars.join}ay"
