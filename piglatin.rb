@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby -wKU
 class PigLatin
 	def self.translate(text)
 		text.gsub( /\w+/ ) do |word| 
