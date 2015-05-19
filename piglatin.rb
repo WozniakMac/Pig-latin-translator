@@ -2,16 +2,14 @@
 class PigLatin
 	def self.translate(text)
 		text.gsub( /\w+/ ) do |word| 
-			wchars = word.chars
-			first = wchars[0]
-			last = wchars[-1]
-			wchars << first
-			wchars.delete_at(0)
-			wchars[0].upcase! if first == first.upcase
-			wchars[-1].downcase! if last == last.downcase
-			if first.downcase =~ /[eyuioa]/
+			if (first = (wchars = word.chars).first).downcase =~ /[eyuioa]/
 				"#{word}way"
 			else
+				last = wchars[-1]
+				wchars << first
+				wchars.delete_at(0)
+				wchars[0].upcase! if first == first.upcase
+				wchars[-1].downcase! if last == last.downcase
 				"#{wchars.join}ay"
 			end
 		end
